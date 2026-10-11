@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="KniePlan">
+  <meta name="theme-color" content="#1F4E79">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon.png">
+  <link rel="stylesheet" href="style.css">
+  <title>Knie Trainingsplan</title>
+</head>
+<body>
+
+  <div id="app-header">
+    <h1>🏔️ Knie Trainingsplan</h1>
+    <p>Bernhard Held · Ziel: 15.12.2026 Wiedersberger Horn</p>
+  </div>
+
+  <div id="page-content">
+    <div style="text-align:center;padding:40px;color:#999">Lädt...</div>
+  </div>
+
+  <nav id="bottom-nav">
+    <button class="nav-item active" data-page="home" onclick="goTo('home')">
+      <span class="ni-icon">🏠</span>
+      <span>Heute</span>
+    </button>
+    <button class="nav-item" data-page="plan" onclick="goTo('plan')">
+      <span class="ni-icon">📋</span>
+      <span>Plan</span>
+    </button>
+    <button class="nav-item" data-page="ampel" onclick="goTo('ampel')">
+      <span class="ni-icon">🚦</span>
+      <span>Ampel</span>
+    </button>
+    <button class="nav-item" data-page="stats" onclick="goTo('stats')">
+      <span class="ni-icon">📊</span>
+      <span>Fortschritt</span>
+    </button>
+  </nav>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./sw.js');
+    }
+  </script>
+</body>
+</html>
